@@ -92,6 +92,45 @@
             font-size: 1rem;
         }
         
+        /* Countdown */
+        .countdown {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .countdown h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--gray);
+        }
+        
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .time-block {
+            background: var(--dark);
+            padding: 1rem 1.5rem;
+            border-radius: 8px;
+            min-width: 70px;
+        }
+        
+        .time-block span {
+            display: block;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--green);
+        }
+        
+        .time-block label {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--gray);
+            letter-spacing: 0.1em;
+        }
+        
         .waitlist-form {
             background: var(--dark);
             padding: 2rem;
@@ -225,6 +264,16 @@
             </div>
         </div>
         
+        <div class="countdown" id="countdown">
+            <h2>Marco goes live in</h2>
+            <div class="timer">
+                <div class="time-block"><span id="days">00</span><label>Days</label></div>
+                <div class="time-block"><span id="hours">00</span><label>Hours</label></div>
+                <div class="time-block"><span id="minutes">00</span><label>Min</label></div>
+                <div class="time-block"><span id="seconds">00</span><label>Sec</label></div>
+            </div>
+        </div>
+        
         <div class="waitlist-form" id="waitlistForm">
             <h2>Join the waitlist</h2>
             <p>Be first to know when Marco is ready to text.</p>
@@ -249,6 +298,29 @@
     </footer>
     
     <script>
+        // Countdown Timer - Set your launch date here
+        const launchDate = new Date('2026-02-11T09:00:00-08:00').getTime();
+        
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+            
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('countdown').innerHTML = '<h2 style="color: var(--green);">🚀 Marco is LIVE! Text (415) 843-6766</h2>';
+            }
+        }, 1000);
+        
         const form = document.getElementById('form');
         const formContainer = document.getElementById('waitlistForm');
         const successMessage = document.getElementById('successMessage');
