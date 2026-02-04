@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TextMarco — Your Website, One Text Away</title>
+    <meta name="description" content="Text Marco your business info. Get a website instantly. No calls, no meetings, no hassle. Just text.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --black: #0a0a0a;
+            --white: #fafafa;
+            --green: #00ff88;
+            --gray: #888;
+            --dark: #111;
+        }
+        
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background: var(--black);
+            color: var(--white);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 3rem;
+            color: var(--green);
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 1.5rem;
+        }
+        
+        h1 span {
+            color: var(--green);
+        }
+        
+        .tagline {
+            font-size: 1.25rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            line-height: 1.5;
+        }
+        
+        .how-it-works {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .step {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--dark);
+            border-radius: 8px;
+            border-left: 3px solid var(--green);
+        }
+        
+        .step-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--green);
+            min-width: 2rem;
+        }
+        
+        .step-text {
+            font-size: 1rem;
+        }
+        
+        .waitlist-form {
+            background: var(--dark);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .waitlist-form h2 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .waitlist-form p {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .form-row input {
+            flex: 1;
+            padding: 1rem;
+            font-size: 1rem;
+            font-family: inherit;
+            background: var(--black);
+            border: 1px solid #333;
+            border-radius: 8px;
+            color: var(--white);
+        }
+        
+        .form-row input:focus {
+            outline: none;
+            border-color: var(--green);
+        }
+        
+        .form-row button {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            background: var(--green);
+            color: var(--black);
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        
+        .form-row button:hover {
+            transform: scale(1.02);
+            opacity: 0.9;
+        }
+        
+        .social-proof {
+            text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        
+        .social-proof strong {
+            color: var(--white);
+        }
+        
+        footer {
+            padding: 2rem;
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--gray);
+        }
+        
+        footer a {
+            color: var(--green);
+            text-decoration: none;
+        }
+        
+        /* Success state */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .success-message.show {
+            display: block;
+        }
+        
+        .success-message h2 {
+            color: var(--green);
+            margin-bottom: 1rem;
+        }
+        
+        .waitlist-form.hidden {
+            display: none;
+        }
+        
+        @media (max-width: 480px) {
+            .form-row {
+                flex-direction: column;
+            }
+            
+            .form-row button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">📱 TextMarco</div>
+        
+        <h1>Your website,<br><span>one text away.</span></h1>
+        
+        <p class="tagline">No calls. No meetings. No designers.<br>Just text Marco and get a live website in minutes.</p>
+        
+        <div class="how-it-works">
+            <div class="step">
+                <span class="step-number">1</span>
+                <span class="step-text">Text Marco your business name and what you do</span>
+            </div>
+            <div class="step">
+                <span class="step-number">2</span>
+                <span class="step-text">Answer a few quick questions via text</span>
+            </div>
+            <div class="step">
+                <span class="step-number">3</span>
+                <span class="step-text">Get your live website link — instantly</span>
+            </div>
+        </div>
+        
+        <div class="waitlist-form" id="waitlistForm">
+            <h2>Join the waitlist</h2>
+            <p>Be first to know when Marco is ready to text.</p>
+            <form action="https://formspree.io/f/xwpkqvjn" method="POST" id="form">
+                <div class="form-row">
+                    <input type="email" name="email" placeholder="your@email.com" required>
+                    <button type="submit">Join</button>
+                </div>
+            </form>
+        </div>
+        
+        <div class="success-message" id="successMessage">
+            <h2>You're on the list! 🎉</h2>
+            <p>We'll text you when Marco is ready.</p>
+        </div>
+        
+        <p class="social-proof">Built by <strong>Gibson House</strong> — we've built 20+ homes. Now we're building websites.</p>
+    </div>
+    
+    <footer>
+        <p>Questions? <a href="mailto:hello@textmarco.com">hello@textmarco.com</a></p>
+    </footer>
+    
+    <script>
+        const form = document.getElementById('form');
+        const formContainer = document.getElementById('waitlistForm');
+        const successMessage = document.getElementById('successMessage');
+        
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = new FormData(form);
+            
+            try {
+                await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                formContainer.classList.add('hidden');
+                successMessage.classList.add('show');
+            } catch (error) {
+                alert('Something went wrong. Try again?');
+            }
+        });
+    </script>
+</body>
+</html>
